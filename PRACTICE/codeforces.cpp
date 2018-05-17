@@ -1,9 +1,3 @@
-/*
-    Solved!
-    Time: 05:56:41 PM
-    Date: 12-05-18
-*/
-
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -12,26 +6,29 @@ int main(){
     freopen("prInput.txt", "r", stdin);
     freopen("prOutput.txt", "w", stdout);
 
-    int n, t, i;
+    int dif, n, i, height, total = 0, cpy, flag = 0;
+    scanf("%d", &n);
 
-    scanf("%d %d", &n, &t);
-
-    char str[n];
-    scanf(" %s", str);
 
     for(i = 0; i < n; i++){
-        //--t;
-        if(str[i] == 'B' && str[i + 1] == 'G'){
-            swap(str[i], str[i + 1]);
-            --t;
-        }
+        scanf(" %d", &height);
 
-        if(t == 0){
-            break;
+        if(i == 0){
+            total = height + 1;
+            cpy = height;
+            continue;
+        } else if (height == cpy){
+            total--;
+            total += height + 1;
+            flag++;
+        } else {
+            total++;
+            total += height + 1;
         }
+        cpy = height;
     }
 
-    printf("%s\n", str);
+    printf("%d\n", (total - flag) - 1);
 
     return 0;
 }

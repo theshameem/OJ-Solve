@@ -19,10 +19,15 @@ int main(){
         stack<string> forward;
 
         back.push("http://www.lightoj.com/");
-
-        printf("Case %d:\n", ++cases);
+        int flag = 0;
+        
         while(1){
             scanf(" %s", str);
+
+            if(!flag) {
+                printf("Case %d:\n", ++cases);
+                flag = 1;
+            }
             if(str[0] == 'V'){
                 scanf(" %s", url);
 

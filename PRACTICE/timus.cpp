@@ -5,13 +5,14 @@ int main(){
     freopen("prInput.txt", "r", stdin);
     freopen("prOutput.txt", "w", stdout);
 
-    int long long n;
+    int n, m, i, j;
+    scanf("%d %d", &n, &m);
 
-    int arr[10] = {10, 670, 46991};
-
-    scanf("%lld", &n);
-
-    printf("%lld\n", arr[(n / 2) - 1]);
-
+    for(i = 0; i < n; i++){
+        for(j = 0; j < m; j++){
+            scanf("%c", )
+        }
+    }
+    
     return 0;
 }
