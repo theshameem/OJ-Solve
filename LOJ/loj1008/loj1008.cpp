@@ -1,6 +1,10 @@
+/*
+    Solved!
+    Time: 05-02:11 PM
+    Date: 17-05-18
+*/
 #include <bits/stdc++.h>
 #include <algorithm>
-
 using namespace std;
 
 int main(){
@@ -20,7 +24,7 @@ int main(){
             squ++;
         }
 
-        if(n % 2){
+        if(squ % 2){
             y = n - ((squ - 1) * (squ - 1));
 
             if(squ < y){
@@ -44,5 +48,6 @@ int main(){
         
         printf("Case %lld: %lld %lld\n", ++cases, row, col);  
     }
+    
     return 0;
 }
