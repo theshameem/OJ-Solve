@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-#include <algorithm>
-
 using namespace std;
 
 int main(){
@@ -25,9 +23,7 @@ int main(){
                 ++cnt;
             }
         }
-
         printf("Case %d: %d\n", ++cases, cnt);
     }
-
     return 0;
 }

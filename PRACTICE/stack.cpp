@@ -1,57 +1,31 @@
 #include <bits/stdc++.h>
-#include <stack>
-
 using namespace std;
 
 int main(){
-    freopen("prInput.txt", "r", stdin);
-    freopen("prOutput.txt", "w", stdout);
-
-    int t, cases = 0;
+    freopen("input.txt", "r", stdin);
+    //freopen("prOutput.txt", "w", stdout);
+    
+    int t, n, cases = 0;
+    char name[50];
 
     scanf("%d", &t);
 
     while(t--){
-        char str[500];
-        char url[500];
+        scanf(" %d %s", &n, name);
 
-        stack<string> back;
-        stack<string> forward;
-
-        back.push("http://www.lightoj.com/");
-        int flag = 0;
-        
-        while(1){
-            scanf(" %s", str);
-
-            if(!flag) {
-                printf("Case %d:\n", ++cases);
-                flag = 1;
-            }
-            if(str[0] == 'V'){
-                scanf(" %s", url);
-
-                back.push(url);
-                cout << back.top() << endl;
-
-                while(!forward.empty()) forward.pop();
-            } else if (str[0] == 'F'){
-                if(forward.empty()){
-                    printf("Ignored\n");
-                } else {
-                    
-                }
-            } else if (str[0] == 'B'){
-                if(back.empty()){
-                    printf("Ignored\n");
-                } else {
-                    
-                }
+        if(strcmp(name, "Alice") == 0){
+            if(n % 2 == 1){
+                printf("Case %d: Alice\n", ++cases);
             } else {
-                break;
+                printf("Case %d: Bob\n", ++cases);
+            }
+        } else {
+            if(n % 2 == 0){
+                printf("Case %d: Alice\n", ++cases);
+            } else {
+                printf("Case %d: Bob\n", ++cases);
             }
         }
     }
-
     return 0;
 }

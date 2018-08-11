@@ -1,34 +1,29 @@
+/*
+    Solved!
+    Date: 07-07-18
+    Time: 07:11:13 PM
+    ekhono tola hy ni.
+*/
 #include <bits/stdc++.h>
 
 using namespace std;
 
 int main(){
-    freopen("prInput.txt", "r", stdin);
-    freopen("prOutput.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
+    //freopen("prOutput.txt", "w", stdout);
 
-    int dif, n, i, height, total = 0, cpy, flag = 0;
-    scanf("%d", &n);
+    int row, col, i, j, r, c, n;
 
-
-    for(i = 0; i < n; i++){
-        scanf(" %d", &height);
-
-        if(i == 0){
-            total = height + 1;
-            cpy = height;
-            continue;
-        } else if (height == cpy){
-            total--;
-            total += height + 1;
-            flag++;
-        } else {
-            total++;
-            total += height + 1;
+    for(i = 0; i < 5; i++){
+        for(j = 0; j < 5; j++){
+            scanf(" %d", &n);
+            if(n == 1){
+                row = i;
+                col = j;
+            }
         }
-        cpy = height;
     }
-
-    printf("%d\n", (total - flag) - 1);
+    cout << abs(2 - col) + abs(2 - row) << endl;
 
     return 0;
 }
