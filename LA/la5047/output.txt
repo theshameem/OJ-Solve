@@ -1,0 +1,6 @@
+Case 1: Login successful.
+Case 2: Wrong password.
+Case 3: Wrong password.
+Case 4: Wrong password. Please, check your caps lock key.
+Case 5: Wrong password. Please, check your num lock key.
+Case 6: Wrong password. Please, check your caps lock and num lock keys.

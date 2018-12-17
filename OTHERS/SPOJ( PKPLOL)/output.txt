@@ -1,0 +1,3 @@
+Case 1: bc
+Case 2: abdeg
+Case 3: abcdg

@@ -91,10 +91,8 @@ void convert_into_Arabic(char str[]){
         rem = n % x;
         n -= rem;
         x *= 10;
-        //cout << rem << " " << x << endl;
         
         if(rem == 0){
-            //alam
             continue;
         } else if(rem == 1){
             res[k++] = 'I';
