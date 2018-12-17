@@ -18,8 +18,8 @@ double arcDistance(double ox, double oy, double ax, double ay, double bx, double
 }
 
 int main(){
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
+    //freopen("input.txt", "r", stdin);
+    //freopen("output.txt", "w", stdout);
 
     int tc, cases = 0;
     double ox, oy, ax, ay, bx, by, res;
