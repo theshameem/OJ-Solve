@@ -44,17 +44,11 @@ vector<string> ans;
 bool taken[200];
 int positions[40];
 
-void permutations(int pos, int cnt){
-    if(pos >= n || cnt == mx){
-        if(cnt == mx){
-            string tmp = "";
-            for(int i = 0; i < mx; i++) {
-                tmp += s[positions[i]];
-                // printf("%c", s[positions[i]]);
-                // if(i + 1 == mx) pf("\n");
-                //else pf(" ");
-            }
-            ans.push_back(tmp);
+void permutations(int pos){
+    if(pos >= n){
+        string tmp = "";
+        for(int i = 0; i < mx; i++) {
+            tmp += s[positions[i]];
         }
         return;
     }
@@ -63,7 +57,7 @@ void permutations(int pos, int cnt){
         if(taken[i] == false){
             taken[i] = true;
             positions[pos] = i;
-            permutations(pos + 1, cnt + 1);
+            permutations(pos + 1);
             taken[i] = false;
         }
     }
@@ -89,8 +83,6 @@ int main(){
             FOR(i, 0, ans.size()) cout << ans[i] << endl;
             ans.clear();
        }
-       
-       
 
     #ifndef ONLINE_JUDGE
         printf("\n>>Runtime: %.10fs\n", (double)(clock() - start) / CLOCKS_PER_SEC);

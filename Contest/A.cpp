@@ -1,3 +1,5 @@
+// COIN CHANGE(IV)
+//Tanzir Vai Contest
 #include <bits/stdc++.h>
 using namespace std;
  
@@ -38,34 +40,30 @@ typedef vector<ll>          vll;
 #define sllll(a, b, c, d)   scanf("%lld %lld %lld %lld", &a, &b, &c, &d)
 #define vout(v)             for(int i = 0; i < v.size(); i++) {cout << v[i]; if(i < v.size() - 1) cout << ' '; else cout << endl;}
 
-int n = 3;
-bool taken[5];
-int ar[] = {0, 1, 2};
-int positions[10];
+int n, k;
+int dp[]
+vi v;
+int solve(int pos, int val){
 
-void permutations(int pos){
-    if(pos >= n){
-        for(int i = 0; i < n; i++) printf("%d ", positions[i]);
-        pf("\n");
-        return;
-    }
-
-    for(int i = 0; i < n; i++){
-        if(taken[i] == false){
-            taken[i] = true;
-            positions[pos] = i;
-            permutations(pos + 1);
-            taken[i] = false;
-        }
-    }
 }
 
 int main(){
     #ifndef ONLINE_JUDGE
         double start = clock(); READ(); WRITE();
     #endif
-       MEM(taken, false);
-       permutations(0);
+       int tc, cs=0; si(tc);
+       while(tc--){
+            sii(n, k); 
+            FOR(i, 0, n){
+                int x; si(x);
+                v.pb(x);
+                v.pb(x);
+            }
+            vout(v);
+            MEM(dp, -1);
+            cout << solve(0, 0) << endl;
+            v.clear();
+       }
 
     #ifndef ONLINE_JUDGE
         printf("\n>>Runtime: %.10fs\n", (double)(clock() - start) / CLOCKS_PER_SEC);
