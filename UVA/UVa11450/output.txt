@@ -1,0 +1,5 @@
+75
+19
+no solution
+
+>>Runtime: 0.0715090000s

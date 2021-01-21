@@ -1,0 +1,8 @@
+Case 1: Square
+Case 2: Rectangle
+Case 3: maf koira den vai
+Case 4: maf koira den vai
+Case 5: maf koira den vai
+Case 6: maf koira den vai
+
+>>Runtime: 0.0001000000s
