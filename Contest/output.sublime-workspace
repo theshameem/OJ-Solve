@@ -1,0 +1,407 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"as",
+				"assignmenOperator"
+			],
+			[
+				"comm",
+				"commentOrNot"
+			],
+			[
+				"com",
+				"commentOrNot"
+			],
+			[
+				"cn",
+				"cnt"
+			],
+			[
+				"tot",
+				"totSum"
+			],
+			[
+				"val",
+				"val2"
+			],
+			[
+				"to",
+				"totSum"
+			],
+			[
+				"sz",
+				"sz_od"
+			],
+			[
+				"a",
+				"ans"
+			],
+			[
+				"num",
+				"num2"
+			],
+			[
+				"nu",
+				"num2"
+			],
+			[
+				"todo",
+				"todo"
+			],
+			[
+				"typ",
+				"typeTwo"
+			],
+			[
+				"ty",
+				"typeTwo"
+			],
+			[
+				"type",
+				"typeOne"
+			],
+			[
+				"mp",
+				"mp1"
+			],
+			[
+				"b",
+				"b"
+			],
+			[
+				"Ma",
+				"MAXN"
+			],
+			[
+				"backgro",
+				"background-position\tproperty"
+			],
+			[
+				"back",
+				"background-position\tproperty"
+			],
+			[
+				"marg",
+				"margin-top\tproperty"
+			],
+			[
+				"fro",
+				"form-group"
+			],
+			[
+				"font",
+				"font-family\tproperty"
+			],
+			[
+				"margi",
+				"margin-top\tproperty"
+			],
+			[
+				"hde",
+				"head\tTag"
+			],
+			[
+				"Ja",
+				"JanceBFS"
+			],
+			[
+				"F",
+				"FireBFS"
+			],
+			[
+				"vi",
+				"vis"
+			],
+			[
+				"uni",
+				"unionSet"
+			],
+			[
+				"set",
+				"unionSet"
+			],
+			[
+				"fi",
+				"findParent"
+			],
+			[
+				"al",
+				"a_l"
+			],
+			[
+				"ch",
+				"check"
+			],
+			[
+				"pa",
+				"parentRank"
+			],
+			[
+				"se",
+				"set"
+			],
+			[
+				"id",
+				"idxi"
+			],
+			[
+				"idx",
+				"idxi"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"syntA:post",
+				"Set Syntax: PostCSS"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"mater:ac",
+				"Material Theme: Activate theme"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/mom/Desktop/downloads/Python and Flask Bootcamp Create Websites using Flask!/Flask-Bootcamp-master/requirements.txt",
+		"/home/mom/Desktop/DevResume-Theme-master/index.html",
+		"/home/mom/Desktop/CPP/Contest/D.cpp",
+		"/home/mom/Desktop/CPP/Contest/B.cpp",
+		"/home/mom/Desktop/CPP/Contest/A.cpp",
+		"/home/mom/Desktop/CPP/Contest/C.cpp",
+		"/home/mom/Desktop/WEB DEVELOPMENT/Tailwind/public/index.html",
+		"/home/mom/Desktop/WEB DEVELOPMENT/Tailwind/CSS/tailwind.css",
+		"/home/mom/Desktop/WEB DEVELOPMENT/Tailwind/public/build/tailwind.css",
+		"/home/mom/Desktop/WEB DEVELOPMENT/Tailwind/package-lock.json",
+		"/home/mom/Desktop/WEB DEVELOPMENT/Tailwind/package.json",
+		"/home/mom/Desktop/WEB DEVELOPMENT/Tailwind/postcss.config.js",
+		"/home/mom/Desktop/WEB DEVELOPMENT/Tailwind/tailwind.config.js",
+		"/home/mom/Desktop/WEB DEVELOPMENT/Tailwind/index.html",
+		"/home/mom/Desktop/CPP/Contest/output.txt",
+		"/home/mom/Desktop/CPP/Contest/input.txt",
+		"/home/mom/Desktop/WEB DEVELOPMENT/JS_CRASH_COURSE/style.css",
+		"/home/mom/Desktop/WEB DEVELOPMENT/JS_CRASH_COURSE/main.js",
+		"/home/mom/Desktop/WEB DEVELOPMENT/JS_CRASH_COURSE/index.html",
+		"/home/mom/Desktop/Academic Study/Summer'2020/Compiler Desing(Lab)/LabTask.txt",
+		"/home/mom/Desktop/JS_CRASH_COURSE/main.js",
+		"/home/mom/Desktop/JS_CRASH_COURSE/style.css",
+		"/home/mom/Desktop/JS_CRASH_COURSE/index.html",
+		"/home/mom/Desktop/CPP/UVA/Unsolved/UVa10110/UVa10110.cpp",
+		"/home/mom/Desktop/CPP/UVA/Unsolved/UVa10110/input.txt",
+		"/home/mom/Desktop/CPP/UVA/Unsolved/UVa10110/output.txt",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1009/output.txt",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1009/input.txt",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1009/LOJ1009.cpp",
+		"/home/mom/Desktop/CSScrashCode/mywebsite/css/style.css",
+		"/home/mom/Desktop/CSScrashCode/mywebsite/index.html",
+		"/home/mom/Desktop/results.db",
+		"/home/mom/Desktop/CSScrashCode/mywebsite/images/index.html",
+		"/home/mom/Desktop/CSScrashCode/csscheatsheet/css/style.css",
+		"/home/mom/Desktop/CSScrashCode/csscheatsheet/index.html",
+		"/home/mom/Desktop/htmlcheatsheet/blog.html",
+		"/home/mom/Desktop/htmlcheatsheet/index.html",
+		"/home/mom/Desktop/hello.html",
+		"/home/mom/Desktop/CPP/Algorithm/BFS.cpp",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1141/output.txt",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1141/input.txt",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1141/LOJ1141.cpp",
+		"/home/mom/Desktop/CPP/LOJ/Solved/LOJ1175/LOJ1175.cpp",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1175/output.txt",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1175/input.txt",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1175/LOJ1175.cpp",
+		"/home/mom/Desktop/CPP/Algorithm/output.txt",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1238/LOJ1238.cpp",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1238/output.txt",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1238/input.txt",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1115/output.txt",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1115/input.txt",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1115/LOJ1115.cpp",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1263/output.txt",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1263/input.txt",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1263/LOJ1263.cpp",
+		"/home/mom/Desktop/CPP/Algorithm/dsu.cpp",
+		"/home/mom/Desktop/CPP/UVA/Solved/UVa793/UVa793.cpp",
+		"/home/mom/Desktop/CPP/UVA/Unsolved/UVa793/input.txt",
+		"/home/mom/Desktop/CPP/UVA/Unsolved/UVa793/output.txt",
+		"/home/mom/Desktop/CPP/UVA/Unsolved/UVa459/output.txt",
+		"/home/mom/Desktop/CPP/UVA/Unsolved/UVa459/input.txt",
+		"/home/mom/Desktop/CPP/UVA/Unsolved/UVa793/UVa793.cpp",
+		"/home/mom/Desktop/CPP/UVA/Unsolved/UVa459/UVa459.cpp",
+		"/home/mom/Desktop/CPP/Algorithm/dsu",
+		"/home/mom/Desktop/CPP/Algorithm/input.txt",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1337/output.txt",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1337/input.txt",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1337/LOJ1337.cpp",
+		"/home/mom/Desktop/CPP/LOJ/Solved/LOJ1012/output.txt",
+		"/home/mom/Desktop/CPP/LOJ/Solved/LOJ1012/input.txt",
+		"/home/mom/Desktop/CPP/LOJ/Solved/LOJ1012/LOJ1012.cpp",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1012/output.txt",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1012/input.txt",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1012/LOJ1012.cpp",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1083/output.txt",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1083/input.txt",
+		"/home/mom/Desktop/CPP/LOJ/Unsolved/LOJ1083/LOJ1083.cpp",
+		"/home/mom/Desktop/hello.py"
+	],
+	"find":
+	{
+		"height": 41.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 41.0
+	},
+	"input":
+	{
+		"height": 79.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/C++/C++ Single File.sublime-build",
+	"project": "output.sublime-project",
+	"replace":
+	{
+		"height": 78.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 217.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

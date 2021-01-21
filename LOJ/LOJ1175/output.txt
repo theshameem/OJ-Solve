@@ -1,0 +1,4 @@
+Case 1: 3
+Case 2: IMPOSSIBLE
+
+>>Runtime: 0.0004760000s

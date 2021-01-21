@@ -1,0 +1,6 @@
+Case 1: 45
+Case 2: 59
+Case 3: 6
+Case 4: 13
+
+>>Runtime: 0.0001130000s
