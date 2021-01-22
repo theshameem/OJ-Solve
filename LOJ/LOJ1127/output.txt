@@ -1,0 +1,5 @@
+Case 1: 2
+Case 2: 1
+Case 3: 8
+
+>>Runtime: 0.0000720000s

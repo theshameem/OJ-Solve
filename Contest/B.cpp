@@ -38,28 +38,40 @@ typedef vector<ll>          vll;
 #define sllll(a, b, c, d)   scanf("%lld %lld %lld %lld", &a, &b, &c, &d)
 #define vout(v)             for(int i = 0; i < v.size(); i++) {cout << v[i]; if(i < v.size() - 1) cout << ' '; else cout << endl;}
 
-int n, k, cnt;
-bool taken[200];
-int positions[200];
+ll n, w, cnt;
+vll v1, v2, valA, valB, tmp;
 
-void solve(int pos){
-	if(cnt >= k) return;
-	if(pos == n){
-		for(int i = 0; i < n; i++){
-			pf("%c", positions[i] + 'A');
-		}
-		pf("\n");
-		cnt++;
+void sub_sum(ll pos, ll track){
+	if(pos == cnt){
+		ll sum = 0;
+		FOR(i, 0, tmp.size()) sum += tmp[i];
+		valA.pb(sum);
 	} else {
-		for(int i = 0; i < n; i++){
-			if(taken[i] == false){
-				taken[i] = true;
-				positions[pos] = i;
-				solve(pos + 1);
-				taken[i] = false;
-			}
+		if(track == 1){
+			sub_sum(pos + 1, 1);
+			tmp.pb(v1[pos]);
+			sub_sum(pos + 1, 1);
+			tmp.ppb();
+		} else {
+			sub_sum(pos + 1, 0);
+			tmp.pb(v2[pos]);
+			sub_sum(pos + 1, 0);
+			tmp.ppb();
 		}
 	}
+}
+
+int solve(){
+	sort(all(valA));
+	sort(all(valB));
+
+	ll ans = 0;
+	FOR(i, 0, valA.size()){
+		if(valA[i] > w) break;
+		ll mn = ubound(valB, w - valA[i]);
+		ans += mn;
+	}
+	return ans;
 }
 
 int main(){
@@ -68,10 +80,31 @@ int main(){
     #endif
         int tc, cs = 0; si(tc);
         while(tc--){
-        	sii(n, k);
-        	cnt = 0; MEM(taken, false);
-        	pf("Case %d:\n", ++cs);
-        	solve(0);
+        	sll(n, w);
+        	FOR(i, 0, n){
+        		ll x; sl(x);
+        		if(i < n / 2){
+        			v1.pb(x);
+        		} else {
+        			v2.pb(x);
+        		}
+        	}
+
+        	//Sub Sum from v1
+        	cnt = v1.size(); 
+        	sub_sum(0, 1);
+        	valB = valA; 
+        	valA.clear();
+
+        	//Sub Sum from v2
+        	cnt = v2.size(); 
+        	sub_sum(0, 0);
+
+        	ll ans = solve();
+        	pf("Case %d: %lld\n", ++cs, ans);
+
+        	v1.clear(); v2.clear();
+        	valA.clear(); valB.clear();
         }
 
     #ifndef ONLINE_JUDGE
