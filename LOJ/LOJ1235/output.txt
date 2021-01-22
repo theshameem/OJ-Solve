@@ -2,4 +2,4 @@ Case 1: Yes
 Case 2: No
 Case 3: Yes
 
->>Runtime: 0.0000570000s
+>>Runtime: 0.0000590000s
