@@ -1,10 +1,14 @@
+/*
+	Solved!
+	Date: 08-01-2021
+	Time: 10:02:02 PM
+*/
 #include <bits/stdc++.h>
 using namespace std;
  
 typedef long long           ll;
 typedef vector<int>         vi;
 typedef vector<ll>          vll;
-
 #define ff                  first
 #define sf                  scanf
 #define pf                  printf
@@ -38,13 +42,49 @@ typedef vector<ll>          vll;
 #define sllll(a, b, c, d)   scanf("%lld %lld %lld %lld", &a, &b, &c, &d)
 #define vout(v)             for(int i = 0; i < v.size(); i++) {cout << v[i]; if(i < v.size() - 1) cout << ' '; else cout << endl;}
 
+vll luckyNumbers, vluckyNumbers;
+void BT(ll n){
+	if(n > 1e12) return;
+	luckyNumbers.push_back(n);
+	BT((n * 10) + 4);
+	BT((n * 10) + 7);
+}
+
+void BTFinal(ll pos, ll val){
+	if(val > 1e12 || val <= 0) return;
+
+	if(val > 1) vluckyNumbers.push_back(val);
+	for(int i = pos; i < luckyNumbers.size(); i++){
+		if(((val * luckyNumbers[i]) > 1e12) || ((val * luckyNumbers[i]) <= 0)) {
+			break;
+		}
+		BTFinal(i, (val * luckyNumbers[i]));
+	}
+}
+
+ll solve(ll a, ll b){
+	ll lo = lbound(vluckyNumbers, a);
+	ll hi = ubound(vluckyNumbers, b);
+
+	return (ll)(hi - lo);
+}
 
 int main(){
     #ifndef ONLINE_JUDGE
         double start = clock(); READ(); WRITE();
     #endif
-        
+        BT(0);
+        sort(all(luckyNumbers));
+        luckyNumbers.erase(luckyNumbers.begin());
+        BTFinal(0, 1);
+        sort(all(vluckyNumbers)); unq(vluckyNumbers);
 
+        int t, cs = 0; si(t);
+        while(t--){
+        	ll a, b; sll(a, b);
+        	ll ans = solve(a, b);
+        	pf("Case %d: %lld\n", ++cs, ans);
+        }
 
     #ifndef ONLINE_JUDGE
         printf("\n>>Runtime: %.10fs\n", (double)(clock() - start) / CLOCKS_PER_SEC);

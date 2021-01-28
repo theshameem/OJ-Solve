@@ -1,5 +1,3 @@
-Case 1: Yes
-Case 2: No
-Case 3: Yes
+41000000
 
->>Runtime: 0.0000570000s
+>>Runtime: 0.0000770000s
