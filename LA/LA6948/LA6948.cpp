@@ -1,3 +1,8 @@
+/*
+	Solved!
+	Date: 31-02-2021
+	Time: 11:12:04 PM
+*/
 #include <bits/stdc++.h>
 using namespace std;
  
@@ -26,8 +31,8 @@ typedef vector<ll>          vll;
 #define ubound(v, x)        (upper_bound(all(v), x) - v.begin())
 #define lbound(v, x)        (lower_bound(all(v), x) - v.begin())
 #define unq(v)              (v).resize(unique(all(v)) - v.begin())
-#define READ()              freopen("input.txt", "r", stdin)
-#define WRITE()             freopen("output.txt", "w", stdout)
+#define READ()              freopen("joke.in", "r", stdin)
+#define WRITE()             freopen("joke.out", "w", stdout)
 #define si(n)               scanf("%d", &n)
 #define sl(n)               scanf("%lld", &n)
 #define sii(a, b)           scanf("%d %d", &a, &b)
@@ -53,7 +58,6 @@ void solve(int pos){
             flag = 1;
             vout(res);
         }
-        // vout(res);
         return;
     }
 
@@ -88,8 +92,9 @@ void solve(int pos){
 
 int main(){
     #ifndef ONLINE_JUDGE
-        double start = clock(); READ(); WRITE();
+        double start = clock(); //READ(); WRITE();
     #endif
+        READ(); WRITE();
         while(cin >> s){
             sz = s.size();
             MEM(taken, 0);

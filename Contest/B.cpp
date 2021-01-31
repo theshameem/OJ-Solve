@@ -41,58 +41,6 @@ typedef vector<ll>          vll;
 #define vout(v)             for(int i = 0; i < v.size(); i++) {cout << v[i]; if(i < v.size() - 1) cout << ' '; else cout << endl;}
 
 
-void solve(int n, vi v){
-	// return;
-	int i = 0, j = 0, mn = v[0], ans = 1, cnt = 1, xx = 0;
-	while(i < n){
-		j = i + 1;
-		while(j < n && abs(mn - v[j]) <= 1){
-			mn = min(mn, v[j]);
-			++j, ++cnt;
-		}
-		cout << i << " " << j << " " << cnt << endl;
-		ans = max(ans, cnt);
-		++i, --j, cnt = 1;
-		mn = v[i];
-		while(i < j && i < n){
-			mn = min(mn, v[i]);
-			++i, ++cnt;
-		}
-
-	}
-	ans = max(ans, cnt);
-	cout << ans << endl;
-}
-
-// void solve(int n, vi v){
-// 	// return;
-// 	int i = 0, j = 0, ans = 0, mn = v[0], cnt = 0;
-// 	while(i < n && j < n){
-// 		j = i + 1;
-// 		while(j < n){
-// 			if(abs(mn - v[j]) <= 1){
-// 				mn = min(mn, v[j]);
-// 				++cnt, ++j;
-// 			} else {
-// 				--j;
-// 				break;
-// 			}
-// 		}
-// 		ans = max(ans, abs(i - j) + 1);
-// 		cout << i << " " << j << "->" << abs(i - j) + 1 << endl;
-// 		++i, cnt = 0;
-// 		mn = v[i];
-// 		while(i < j && i < n){
-// 			mn = min(mn, v[i]);
-// 			++cnt, ++i;
-// 		}
-		
-// 	}
-// 	ans = max(ans, cnt + 1);
-// 	cout << ans << endl;
-// 	return;
-// }
-
 int main(){
     #ifndef ONLINE_JUDGE
         double start = clock(); READ(); WRITE();
