@@ -4,7 +4,6 @@ using namespace std;
 typedef long long           ll;
 typedef vector<int>         vi;
 typedef vector<ll>          vll;
-
 #define ff                  first
 #define sf                  scanf
 #define pf                  printf
@@ -12,7 +11,8 @@ typedef vector<ll>          vll;
 #define ppb                 pop_back
 #define pb                  push_back
 #define MP                  make_pair
-#define MAXN                10000
+#define MAXN                1e18
+#define eps                 1e-9
 #define MOD                 1000000007
 #define inf                 0x3f3f3f3f
 #define PI                  (2.0*acos(0.0))
@@ -23,8 +23,8 @@ typedef vector<ll>          vll;
 #define FOR(i, x, y)        for(int i = x; i < y; i++)
 #define RFOR(i, x, y)       for(int i = x; i >= y; i--)
 #define MEM(arr, val)       memset(arr, val, sizeof(arr));
-#define ubound(v,x)         (upper_bound(all(v), x) - v.begin())
-#define lbound(v,x)         (lower_bound(all(v), x) - v.begin())
+#define ubound(v, x)        (upper_bound(all(v), x) - v.begin())
+#define lbound(v, x)        (lower_bound(all(v), x) - v.begin())
 #define unq(v)              (v).resize(unique(all(v)) - v.begin())
 #define READ()              freopen("input.txt", "r", stdin)
 #define WRITE()             freopen("output.txt", "w", stdout)
