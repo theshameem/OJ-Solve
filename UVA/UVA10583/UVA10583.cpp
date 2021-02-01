@@ -1,3 +1,8 @@
+/*
+	Solved!
+	Date: 02-02-2021
+	Time: 05:35:06 AM
+*/
 #include <bits/stdc++.h>
 using namespace std;
  
@@ -65,11 +70,6 @@ int solve(){
         mp[parent[i]]++;
     }
     return (int)mp.size();
-    // int ans = 0;
-    // for(auto x: mp){
-    //     ans = max(ans, x.ss);
-    // }
-    // pf("%d\n", ans);
 }
 
 int main(){
