@@ -38,8 +38,7 @@ typedef vector<ll>          vll;
 #define sllll(a, b, c, d)   scanf("%lld %lld %lld %lld", &a, &b, &c, &d)
 #define vout(v)             for(int i = 0; i < v.size(); i++) {cout << v[i]; if(i < v.size() - 1) cout << ' '; else cout << endl;}
 
-int n, m, ans;
-int flag[MAXN];
+int n, m;
 int parent[MAXN];
 
 void initSet(){
@@ -48,7 +47,6 @@ void initSet(){
 
 int findSet(int node){
     if(parent[node] == node) return node;
-    ++ans;
     return parent[node] = findSet(parent[node]);
 }
 
@@ -59,21 +57,14 @@ void unionSet(int x, int y){
 }
 
 void solve(){
-    int ans = 0;
     map<int, int> mp;
-    ans = 0;
-    int cnt = 0;
-    MEM(flag, 0);
     FOR(i, 1, n + 1){
-        ans = 0;
         int x = findSet(i);
-        cnt = max(ans, cnt);
     }
     FOR(i, 1, n + 1){
         mp[parent[i]]++;
     }
-    ans = 0;
-    MEM(flag, 0);
+    int ans = 0;
     for(auto x: mp){
         ans = max(ans, x.ss);
     }
