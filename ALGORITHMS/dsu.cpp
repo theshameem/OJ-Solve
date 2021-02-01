@@ -19,7 +19,6 @@ int findParent(int a){
 void unionSet(int a, int b){
 	int u = findParent(a);
 	int v = findParent(b);
-	//if(u == v) return;
 	parent[u] = v;
 }
 
