@@ -1,5 +1,3 @@
-//CF 602/B
-//SOlve using two pointer methods
 #include <bits/stdc++.h>
 using namespace std;
  
@@ -45,12 +43,7 @@ int main(){
     #ifndef ONLINE_JUDGE
         double start = clock(); READ(); WRITE();
     #endif
-        int n; si(n);
-        vi v(n);
-        FOR(i, 0, n){
-        	si(v[i]);
-        }
-        solve(n, v);
+        
 
     #ifndef ONLINE_JUDGE
         printf("\n>>Runtime: %.10fs\n", (double)(clock() - start) / CLOCKS_PER_SEC);

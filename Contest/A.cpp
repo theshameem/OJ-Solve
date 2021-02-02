@@ -38,53 +38,46 @@ typedef vector<ll>          vll;
 #define sllll(a, b, c, d)   scanf("%lld %lld %lld %lld", &a, &b, &c, &d)
 #define vout(v)             for(int i = 0; i < v.size(); i++) {cout << v[i]; if(i < v.size() - 1) cout << ' '; else cout << endl;}
 
-int n, m;
-int parent[MAXN];
-
-void initSet(){
-    FOR(i, 0, MAXN) parent[i] = i;
-}
-
-int findSet(int node){
-    if(parent[node] == node) return node;
-    return parent[node] = findSet(parent[node]);
-}
-
-void unionSet(int x, int y){
-    int u = findSet(x);
-    int v = findSet(y);
-    parent[u] = v;
-}
-
-int solve(){
-    map<int, int> mp;
-    FOR(i, 1, n + 1){
-        int x = findSet(i);
+bool solve(ll n){
+    if(n % 2020 == 0 || n % 2021 == 0) return true;
+    while(n >= 2020){
+        n -= 2021;
+        if(n % 2020 == 0 || n % 2021 == 0) return true;
     }
-    FOR(i, 1, n + 1){
-        mp[parent[i]]++;
-    }
-    return (int)mp.size();
-    // int ans = 0;
-    // for(auto x: mp){
-    //     ans = max(ans, x.ss);
-    // }
-    // pf("%d\n", ans);
+    if(n % 2020 == 0 || n % 2021 == 0) return true;
+    return false;
 }
 
 int main(){
     #ifndef ONLINE_JUDGE
         double start = clock(); READ(); WRITE();
     #endif
-        int cs = 0;
-        while(cin >> n >> m){
-            if(n == 0 && m == 0) break;
-            initSet();
-            FOR(i, 0, m){
-                int x, y; sii(x, y);
-                unionSet(x, y);
+        int t; si(t);
+        while(t--){
+            int a, b, k; siii(a, b, k);
+            vector<int> boys(k), girls(k);
+            map<int, int> boysMap, girslMap;
+            map<pair<int, int>, int> PairMap;
+
+            FOR(i, 0, k){
+                si(boys[i]);
+                boysMap[boys[i]]++;
             }
-            pf("Case %d: %d\n", ++cs, solve());
+            FOR(i, 0, k){
+                si(girls[i]);
+                girslMap[girls[i]]++;
+                PairMap[{boys[i], girls[i]}]++;
+            }
+
+            ll ans = 0;
+            FOR(i, 0, k){
+                int cnt = k;
+                ans -= boysMap[boys[i]];
+                ans -= girslMap[girls[i]];
+                ans += PairMap[{boys[i], girls[i]}];
+                ans += cnt;
+            }
+            cout << ans / 2 << endl;
         }
 
     #ifndef ONLINE_JUDGE
