@@ -1,3 +1,4 @@
+//UVA-11503, Blue, DSU
 #include <bits/stdc++.h>
 using namespace std;
  
@@ -38,46 +39,47 @@ typedef vector<ll>          vll;
 #define sllll(a, b, c, d)   scanf("%lld %lld %lld %lld", &a, &b, &c, &d)
 #define vout(v)             for(int i = 0; i < v.size(); i++) {cout << v[i]; if(i < v.size() - 1) cout << ' '; else cout << endl;}
 
-bool solve(ll n){
-    if(n % 2020 == 0 || n % 2021 == 0) return true;
-    while(n >= 2020){
-        n -= 2021;
-        if(n % 2020 == 0 || n % 2021 == 0) return true;
+int rabin_karp(string pattern, string text, ll b, ll m) {
+    int p = pattern.size(), t = text.size();
+
+    vll power(max(t, p));
+    power[0] = 1;
+
+    for(int i = 1; i < power.size(); i++) {
+        power[i] = (power[i - 1] * b) % m;
     }
-    if(n % 2020 == 0 || n % 2021 == 0) return true;
-    return false;
+    
+    vll text_hash(t + 1);
+    for(int i = 0; i < t; i++) {
+        text_hash[i + 1] = (text_hash[i] + ((text[i] - 'a' + 1) * power[i])) % m;
+    }
+
+    ll pattern_hash = 0;
+    for(int i = 0; i < p; i++) {
+        pattern_hash = (pattern_hash + (pattern[i] - 'a' + 1) * power[i]) % m;
+    }
+
+    int ans = 0;
+    for(int i = 0; i + p - 1 < t; i++) {
+        ll hash = (text_hash[i + p] - text_hash[i] + m) % m;
+        if(hash == pattern_hash * power[i] % m) {
+            ++ans;
+        }
+    }
+    return ans;
 }
 
 int main(){
     #ifndef ONLINE_JUDGE
         double start = clock(); READ(); WRITE();
     #endif
-        int t; si(t);
+        int t, cs = 0; si(t);
         while(t--){
-            int a, b, k; siii(a, b, k);
-            vector<int> boys(k), girls(k);
-            map<int, int> boysMap, girslMap;
-            map<pair<int, int>, int> PairMap;
-
-            FOR(i, 0, k){
-                si(boys[i]);
-                boysMap[boys[i]]++;
-            }
-            FOR(i, 0, k){
-                si(girls[i]);
-                girslMap[girls[i]]++;
-                PairMap[{boys[i], girls[i]}]++;
-            }
-
-            ll ans = 0;
-            FOR(i, 0, k){
-                int cnt = k;
-                ans -= boysMap[boys[i]];
-                ans -= girslMap[girls[i]];
-                ans += PairMap[{boys[i], girls[i]}];
-                ans += cnt;
-            }
-            cout << ans / 2 << endl;
+            string a, b;
+            cin >> a >> b;
+            int ans = rabin_karp(b, a, (ll)3109081, (ll)4612717);
+            ans = min(ans, rabin_karp(b, a, (ll)1011001, (ll)4612717));
+            pf("Case %d: %d\n", ++cs, ans);
         }
 
     #ifndef ONLINE_JUDGE

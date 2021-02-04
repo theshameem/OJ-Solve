@@ -12,7 +12,7 @@ typedef vector<ll>          vll;
 #define ppb                 pop_back
 #define pb                  push_back
 #define MP                  make_pair
-#define MAXN                10000
+#define MAXN                100005
 #define MOD                 1000000007
 #define inf                 0x3f3f3f3f
 #define PI                  (2.0*acos(0.0))
@@ -38,12 +38,50 @@ typedef vector<ll>          vll;
 #define sllll(a, b, c, d)   scanf("%lld %lld %lld %lld", &a, &b, &c, &d)
 #define vout(v)             for(int i = 0; i < v.size(); i++) {cout << v[i]; if(i < v.size() - 1) cout << ' '; else cout << endl;}
 
+int node[MAXN * 3], ar[MAXN];
+void build(int now, int lo, int hi){
+    if(lo == hi){
+        node[now] = ar[lo];
+        return;
+    }
+    int mid = (lo + hi) / 2;
+
+    build(now * 2, lo, mid);
+    build((now * 2) + 1, mid + 1, hi);
+
+    node[now] = min(node[now * 2], node[(now * 2) + 1]);
+}
+
+int query(int now, int lo, int hi, int l, int r){
+    if(lo == l && hi == r){
+        return node[now];
+    }
+    int mid = (lo + hi) / 2;
+    if(r <= mid) return query(now * 2, lo, mid, l, r);
+    else if(l > mid) return query((now * 2) + 1, mid + 1, hi, l, r);
+    else{ 
+        int x = query(now * 2, lo, mid, l, mid);
+        int y = query((now * 2) + 1, mid + 1, hi, mid + 1, r);
+        return min(x, y);
+    }
+}
 
 int main(){
     #ifndef ONLINE_JUDGE
         double start = clock(); READ(); WRITE();
     #endif
-        
+        int t, cs = 0; si(t);
+        while(t--){
+        	int n, q; sii(n, q);
+        	FOR(i, 1, n + 1) si(ar[i]);
+        	build(1, 1, n);
+        	pf("Case %d:\n", ++cs);
+        	while(q--){
+        		int a, b; sii(a, b);
+        		int ans = query(1, 1, n, a, b);
+        		pf("%d\n", ans);
+        	}
+        }
 
     #ifndef ONLINE_JUDGE
         printf("\n>>Runtime: %.10fs\n", (double)(clock() - start) / CLOCKS_PER_SEC);

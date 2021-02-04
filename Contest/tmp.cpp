@@ -90,7 +90,6 @@ using namespace std;
 #define gt0(f)  (FasI(f) > 0)
 #define ge0(f)  (FasUI(f) <= 0x80000000U)
 
-
 //Direction array
 //int dr[]={-1,-1,-1,0,1,1, 1, 0};
 //int dc[]={-1, 0, 1,1,1,0,-1,-1};
@@ -1153,7 +1152,6 @@ void anytoany(int a,int b){
 nCr = n! / ((n-r)! * r!);
 nCr = (n-1)C(r-1) + (n-1)Cr;
 
-
 map<pair<int,int>,ll> mp; 
 ll ncr(int n,int r){
     if(r==1)return n;
@@ -1166,14 +1164,15 @@ ll ncr(int n,int r){
     if(mp[make_pair(n-1,r-1)])a=mp[make_pair(n-1,r-1)];
     else b=ncr(n-1,r-1); mp[make_pair(n-1,r-1)]=b;
     
-    return a+b;
+    return a + b;
 }
 
 
 ll ar[10000][10000];
 
 ll ncr(int n,int r){
-    if(r==1)return n;if(n==r)return 1;
+    if(r==1)return n;
+    if(n==r)return 1;
     ll a,b;
 
     if(ar[n-1][r])a=ar[n-1][r];

@@ -1,7 +1,11 @@
-//Virtual DIV. 3(E), Upsolve this
+/*
+	Solved!
+	Date: 04:02:2021
+	Time: 09:24:06 PM
+*/
 #include <bits/stdc++.h>
 using namespace std;
- 
+
 typedef long long           ll;
 typedef vector<int>         vi;
 typedef vector<ll>          vll;
@@ -39,44 +43,47 @@ typedef vector<ll>          vll;
 #define sllll(a, b, c, d)   scanf("%lld %lld %lld %lld", &a, &b, &c, &d)
 #define vout(v)             for(int i = 0; i < v.size(); i++) {cout << v[i]; if(i < v.size() - 1) cout << ' '; else cout << endl;}
 
-ll ar[10000][10000];
+int rabin_karp(string pattern, string text, ll b, ll m) {
+    int p = pattern.size(), t = text.size();
 
-ll ncr(int n,int r){
-    if(r==1)return n;
-    if(n==r)return 1;
-    ll a,b;
+    vll power(max(t, p));
+    power[0] = 1;
 
-    if(ar[n-1][r])a=ar[n-1][r];
-    else{
-        a=ncr(n-1,r);
-        ar[n-1][r]=a;
+    for(int i = 1; i < power.size(); i++) {
+        power[i] = (power[i - 1] * b) % m;
+    }
+    
+    vll text_hash(t + 1);
+    for(int i = 0; i < t; i++) {
+        text_hash[i + 1] = (text_hash[i] + ((text[i] - 'a' + 1) * power[i])) % m;
     }
 
-    if(ar[n-1][r-1])b=ar[n-1][r-1];
-    else{
-        b=ncr(n-1,r-1);
-        ar[n-1][r-1]=b;
+    ll pattern_hash = 0;
+    for(int i = 0; i < p; i++) {
+        pattern_hash = (pattern_hash + (pattern[i] - 'a' + 1) * power[i]) % m;
     }
-    return ar[n][r]=a+b;
+
+    int ans = 0;
+    for(int i = 0; i + p - 1 < t; i++) {
+        ll hash = (text_hash[i + p] - text_hash[i] + m) % m;
+        if(hash == pattern_hash * power[i] % m) {
+            ++ans;
+        }
+    }
+    return ans;
 }
 
 int main(){
     #ifndef ONLINE_JUDGE
         double start = clock(); READ(); WRITE();
     #endif
-        int t; si(t);
+        int t, cs = 0; si(t);
         while(t--){
-            int n, k; sii(n, k);
-            vi v(n), tmp;
-            FOR(i, 0, n) si(v[i]);
-            sort(all(v)); rev(v);
-            // vout(v);
-            int sum = 0;
-            FOR(i, 0, k){
-                sum += v[i];
-                tmp.pb(v[i]);
-            }
-            // cout << sum << endl;
+            string a, b;
+            cin >> a >> b;
+            int ans = rabin_karp(b, a, (ll)3109081, (ll)4612717);
+            ans = min(ans, rabin_karp(b, a, (ll)1011001, (ll)4612717));
+            pf("Case %d: %d\n", ++cs, ans);
         }
 
     #ifndef ONLINE_JUDGE
