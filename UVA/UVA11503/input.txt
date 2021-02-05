@@ -2,4 +2,4 @@
 3
 Fred Barney
 Barney Betty
-Betxy Wilma
+Betty Wilma

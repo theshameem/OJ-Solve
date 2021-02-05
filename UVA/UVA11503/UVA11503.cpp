@@ -1,3 +1,8 @@
+/*
+    Solved!
+    Date: 05-02-2021
+    Time: 10:45:07 PM
+*/
 #include <bits/stdc++.h>
 using namespace std;
  
@@ -11,7 +16,7 @@ typedef vector<ll>          vll;
 #define ppb                 pop_back
 #define pb                  push_back
 #define MP                  make_pair
-#define MAXN                1e18
+#define MAXN                50005
 #define eps                 1e-9
 #define MOD                 1000000007
 #define inf                 0x3f3f3f3f
@@ -38,28 +43,43 @@ typedef vector<ll>          vll;
 #define sllll(a, b, c, d)   scanf("%lld %lld %lld %lld", &a, &b, &c, &d)
 #define vout(v)             for(int i = 0; i < v.size(); i++) {cout << v[i]; if(i < v.size() - 1) cout << ' '; else cout << endl;}
 
+map<string, pair<string, int>> parent;
+void init(string a){
+    if(! parent.count(a)){
+        parent[a] = {a, 1};
+    }
+}
+
+pair<string, int> findParent(string a){
+    if(parent[a].ff == a) return parent[a];
+    return parent[a] = findParent(parent[a].ff);
+}
+
+void unionSet(string a, string b){
+    pair<string, int> u, v;
+    u = findParent(a);
+    v = findParent(b);
+    if(u.ff == v.ff) return;
+    parent[v.ff].ss += parent[u.ff].ss;
+    parent[u.ff] = v;
+}
+
 int main(){
     #ifndef ONLINE_JUDGE
         double start = clock(); READ(); WRITE();
     #endif
         int t; si(t);
         while(t--){
-        	int n; si(n);
-        	vector<vector<int>> v(n);
-        	// cout << v.size() << endl;
-        	// cout << n << endl;
-        	FOR(i, 0, n){
-        		// cout << i << " ";
-        		int x; si(x);
-        		// cout << x << endl;
-        		while(x--){
-        			int val; si(val);
-        			v[i].push_back(val);
-        		}
-        		vout(v[i]);
-        		// break;
-        	}
-        	// break;
+            int n; si(n);
+            while(n--){
+                string a, b;
+                cin >> a >> b;
+                init(a);
+                init(b);
+                unionSet(a, b);
+                cout << findParent(a).ss << endl;
+            }
+            parent.clear();
         }
 
     #ifndef ONLINE_JUDGE
