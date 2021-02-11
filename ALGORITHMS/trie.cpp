@@ -197,3 +197,68 @@ int main(){
     return 0;
 }
 //****************************************************************
+
+
+//******************************Updated Trie*********************
+struct node{
+    bool end; 
+    int path;
+    node *next[26];
+    node(){
+        path = 0;
+        end = false;
+        for(int i = 0; i < 26; i++){
+            next[i] = NULL;
+        }
+    }
+};
+
+struct my_trie {
+    node *root;
+    char smallest_ch;
+
+    my_trie(char ch) {
+        root = new node();
+        smallest_ch = ch;
+    }
+
+    bool insert(string s) {
+        node *now = root;
+
+        for(int i = 0; i < s.size(); i++) {
+            int id = s[i] -  smallest_ch;
+        
+            if(now->next[id] == NULL){
+                now->next[id] = new node();
+            }
+
+            now = now->next[id];
+            now->path++;
+        }
+        now->end = true;
+
+        return (now->path > 1);
+    }
+
+    bool search(string s) {
+        node *now = root;
+        
+        for(int i = 0; i < s.size(); i++){
+            int id = s[i]- smallest_ch;
+
+            if(now->next[id] == NULL) return 0;
+            now = now->next[id];
+        }
+        if(now->end) return 1;
+        return 0;
+    }
+
+    void del(node *now){
+        for(int i = 0; i < 26; i++){
+            if(now->next[i] != NULL){
+                del(now->next[i]);
+            }
+        }
+        delete(now);
+    }
+};

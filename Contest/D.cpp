@@ -11,7 +11,7 @@ typedef vector<ll>          vll;
 #define ppb                 pop_back
 #define pb                  push_back
 #define MP                  make_pair
-#define MAXN                1e18
+#define MAXN                10005
 #define eps                 1e-9
 #define MOD                 1000000007
 #define inf                 0x3f3f3f3f
@@ -38,28 +38,61 @@ typedef vector<ll>          vll;
 #define sllll(a, b, c, d)   scanf("%lld %lld %lld %lld", &a, &b, &c, &d)
 #define vout(v)             for(int i = 0; i < v.size(); i++) {cout << v[i]; if(i < v.size() - 1) cout << ' '; else cout << endl;}
 
+int ans;
+struct node{
+    bool end;
+    node *next[11];
+    node(){
+        end=false;
+        for(int i=0;i<11;i++){
+            next[i]=NULL;
+        }
+    }
+};
+
+void insert(node *root, string s){
+    node *now = root;
+    for(int i=0;i<s.size();i++){
+        int id = s[i]-'0';
+        if(now->next[id]==NULL){
+            now->next[id] = new node();
+        } else if(i + 1 == s.size()){
+        	// cout << now->next[id] << endl;
+        	ans = 0;
+        }
+        if(now->end) ans = 0;
+        // cout << s[i] << " ->" << now->end << endl;
+        now = now->next[id];
+    }
+    now->end=true;
+}
+
+void del(node *now){
+    for(int i=0;i<10;i++){
+        if(now->next[i]!=NULL){
+            del(now->next[i]);
+        }
+    }
+    delete(now);
+}
+
 int main(){
     #ifndef ONLINE_JUDGE
         double start = clock(); READ(); WRITE();
     #endif
-        int t; si(t);
+        int t, cs = 0; si(t);
         while(t--){
         	int n; si(n);
-        	vector<vector<int>> v(n);
-        	// cout << v.size() << endl;
-        	// cout << n << endl;
-        	FOR(i, 0, n){
-        		// cout << i << " ";
-        		int x; si(x);
-        		// cout << x << endl;
-        		while(x--){
-        			int val; si(val);
-        			v[i].push_back(val);
-        		}
-        		vout(v[i]);
-        		// break;
+        	node *root = new node();
+        	ans = 1;
+        	while(n--){
+        		string s; cin >> s;
+        		insert(root, s);
         	}
-        	// break;
+        	pf("Case %d: ", ++cs);
+        	puts(ans ? "YES" : "NO");
+        	del(root);
+        	// cout << ans << endl;
         }
 
     #ifndef ONLINE_JUDGE

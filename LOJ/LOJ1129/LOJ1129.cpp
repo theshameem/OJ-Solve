@@ -1,4 +1,8 @@
-//Virtual DIV. 3(E), Upsolve this
+/*
+    Solved!
+    Date: 11-02-2021
+    Time: 06:42:09 PM
+*/
 #include <bits/stdc++.h>
 using namespace std;
  
@@ -12,7 +16,7 @@ typedef vector<ll>          vll;
 #define ppb                 pop_back
 #define pb                  push_back
 #define MP                  make_pair
-#define MAXN                50005
+#define MAXN                10005
 #define eps                 1e-9
 #define MOD                 1000000007
 #define inf                 0x3f3f3f3f
@@ -39,12 +43,59 @@ typedef vector<ll>          vll;
 #define sllll(a, b, c, d)   scanf("%lld %lld %lld %lld", &a, &b, &c, &d)
 #define vout(v)             for(int i = 0; i < v.size(); i++) {cout << v[i]; if(i < v.size() - 1) cout << ' '; else cout << endl;}
 
+int ans;
+struct node{
+    bool end;
+    node *next[11];
+    node(){
+        end=false;
+        for(int i=0;i<11;i++){
+            next[i]=NULL;
+        }
+    }
+};
+
+void insert(node *root, string s){
+    node *now = root;
+    for(int i=0;i<s.size();i++){
+        int id = s[i]-'0';
+        if(now->next[id]==NULL){
+            now->next[id] = new node();
+        } else if(i + 1 == s.size()){
+        	ans = 0;
+        }
+        if(now->end) ans = 0;
+        now = now->next[id];
+    }
+    now->end=true;
+}
+
+void del(node *now){
+    for(int i=0;i<10;i++){
+        if(now->next[i]!=NULL){
+            del(now->next[i]);
+        }
+    }
+    delete(now);
+}
 
 int main(){
     #ifndef ONLINE_JUDGE
         double start = clock(); READ(); WRITE();
     #endif
-        
+        int t, cs = 0; si(t);
+        while(t--){
+        	int n; si(n);
+        	node *root = new node();
+        	ans = 1;
+        	while(n--){
+        		string s; cin >> s;
+        		insert(root, s);
+        	}
+        	pf("Case %d: ", ++cs);
+        	puts(ans ? "YES" : "NO");
+        	del(root);
+        }
 
     #ifndef ONLINE_JUDGE
         printf("\n>>Runtime: %.10fs\n", (double)(clock() - start) / CLOCKS_PER_SEC);

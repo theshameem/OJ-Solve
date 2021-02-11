@@ -1,4 +1,3 @@
-//UVA-11503, Blue, DSU
 #include <bits/stdc++.h>
 using namespace std;
  
@@ -39,48 +38,11 @@ typedef vector<ll>          vll;
 #define sllll(a, b, c, d)   scanf("%lld %lld %lld %lld", &a, &b, &c, &d)
 #define vout(v)             for(int i = 0; i < v.size(); i++) {cout << v[i]; if(i < v.size() - 1) cout << ' '; else cout << endl;}
 
-int rabin_karp(string pattern, string text, ll b, ll m) {
-    int p = pattern.size(), t = text.size();
-
-    vll power(max(t, p));
-    power[0] = 1;
-
-    for(int i = 1; i < power.size(); i++) {
-        power[i] = (power[i - 1] * b) % m;
-    }
-    
-    vll text_hash(t + 1);
-    for(int i = 0; i < t; i++) {
-        text_hash[i + 1] = (text_hash[i] + ((text[i] - 'a' + 1) * power[i])) % m;
-    }
-
-    ll pattern_hash = 0;
-    for(int i = 0; i < p; i++) {
-        pattern_hash = (pattern_hash + (pattern[i] - 'a' + 1) * power[i]) % m;
-    }
-
-    int ans = 0;
-    for(int i = 0; i + p - 1 < t; i++) {
-        ll hash = (text_hash[i + p] - text_hash[i] + m) % m;
-        if(hash == pattern_hash * power[i] % m) {
-            ++ans;
-        }
-    }
-    return ans;
-}
-
 int main(){
     #ifndef ONLINE_JUDGE
         double start = clock(); READ(); WRITE();
     #endif
-        int t, cs = 0; si(t);
-        while(t--){
-            string a, b;
-            cin >> a >> b;
-            int ans = rabin_karp(b, a, (ll)3109081, (ll)4612717);
-            ans = min(ans, rabin_karp(b, a, (ll)1011001, (ll)4612717));
-            pf("Case %d: %d\n", ++cs, ans);
-        }
+        
 
     #ifndef ONLINE_JUDGE
         printf("\n>>Runtime: %.10fs\n", (double)(clock() - start) / CLOCKS_PER_SEC);
