@@ -1,3 +1,8 @@
+/*
+	Solved!
+	Date: 12-02-2021
+	Time: 07:12:13 PM
+*/
 #include <bits/stdc++.h>
 using namespace std;
  
@@ -42,23 +47,35 @@ int main(){
     #ifndef ONLINE_JUDGE
         double start = clock(); READ(); WRITE();
     #endif
-        int n; si(n);
-        vi v(n + 1);
-
-        FOR(i, 1, n + 1){
-        	si(v[i]);
-        }
-
-        int ans = 0;
-        FOR(i, 1, n + 1){
-        	int val = v[i], cnt = 1;
-        	while(val != -1){
-        		val = v[val];
-        		cnt++;
+        int n, cs = 0;
+        while(cin >> n){
+        	if(n == 0) break;
+        	int A[n], B[n], C[n], s[n];
+        	FOR(i, 0, n){
+        		siiii(A[i], B[i], C[i], s[i]);
         	}
-        	ans = max(ans, cnt);
+        	int ans = -1;
+        	FOR(i, 0, n - 2){
+        		set<int> st1;
+        		st1.insert(A[i]);
+        		st1.insert(B[i]);
+        		st1.insert(C[i]);
+        		FOR(j, i + 1, n - 1){
+        			if(st1.count(A[j]) || st1.count(B[j]) || st1.count(C[j]) ) continue;
+        			set<int> st2;
+        			st2.insert(A[j]);
+        			st2.insert(B[j]);
+        			st2.insert(C[j]);
+        			FOR(k, j + 1, n){
+        				if(st1.count(A[k]) || st1.count(B[k]) || st1.count(C[k]) ) continue;
+        				if(st2.count(A[k]) || st2.count(B[k]) || st2.count(C[k]) ) continue;
+        				int sum = s[i] + s[j] + s[k];
+        				ans = max(ans, sum);
+        			}
+        		}
+        	}
+        	pf("Case %d: %d\n", ++cs, ans);
         }
-        cout << ans << endl;
 
     #ifndef ONLINE_JUDGE
         printf("\n>>Runtime: %.10fs\n", (double)(clock() - start) / CLOCKS_PER_SEC);
