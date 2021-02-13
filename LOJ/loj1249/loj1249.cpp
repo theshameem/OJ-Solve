@@ -1,7 +1,7 @@
 /*
     Solved!
     Time: 08:07:24 PM
-    Date: 09-05-18
+    Date: 09-05-2018
 */
 
 #include <bits/stdc++.h>
@@ -58,8 +58,8 @@ typedef struct {
 }chocolate;
 
 int main(){
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
+    //freopen("input.txt", "r", stdin);
+    //freopen("output.txt", "w", stdout);
 
     int t, n, cases = 0;
 
