@@ -61,27 +61,28 @@ void propagate(int now, int l, int r){
     }
 }
 
-void update(int now, int lo, int hi, int l, int r){
+void update(int now, int lo, int hi, int l, int r, int val){
     propagate(now, lo, hi);
 
     if(lo==l && hi==r){
-        node[now] += (hi-lo+1);
-        lazy[now*2]++; lazy[(now*2)+1]++;
+        node[now] += (val * (hi-lo+1));
+        lazy[now*2] += val; 
+        lazy[(now*2)+1] += val;
         return;
     }
 
     int mid = (lo+hi)/2;
     if(r <= mid){
-        update(now*2, lo, mid, l, r);
+        update(now*2, lo, mid, l, r, val);
         propagate((now*2)+1, mid+1, hi);
     }
     else if(l > mid){
-        update((now*2)+1, mid+1, hi, l, r);
+        update((now*2)+1, mid+1, hi, l, r, val);
         propagate(now*2, lo, mid);
     }
     else{
-        update(now*2, lo, mid, l, mid);
-        update((now*2)+1, mid+1, hi, mid+1, r);
+        update(now*2, lo, mid, l, mid, val);
+        update((now*2)+1, mid+1, hi, mid+1, r, val);
     }
 
     node[now] = node[now*2] + node[(now*2)+1];

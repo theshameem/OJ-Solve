@@ -1,3 +1,8 @@
+/*
+	Solved!
+	Date: 19-02-2021
+	Time: 09:27:13 PM
+*/
 #include <bits/stdc++.h>
 using namespace std;
  
@@ -47,7 +52,30 @@ int main(){
     #ifndef ONLINE_JUDGE
         double start = clock(); READ(); WRITE();
     #endif
-        
+	    int t; si(t);
+	    FOR(p, 0, t){
+	        int n, m; sii(n, m);
+	        string s[m];
+
+	        FOR(i, 0, m) cin >> s[i];
+
+	        int ar[105];
+	        vector< pair<string, pair<int, int>>> v;
+	        FOR(i, 0, m){
+	            string tmp = s[i];
+	            int cnt = 0;
+	            FOR(j, 0, n){
+	                FOR(k, j + 1, n){
+	                    if(tmp[k] < tmp[j]) ++cnt;
+	                }
+	            }
+	            v.push_back(MP(s[i], MP(cnt, i)));
+	            ar[i] = cnt;
+	        }
+	        sort(all(v), cmp);
+	        FOR(i, 0, m) cout << v[i].ff << endl;
+	        if(p + 1 != t) cout << endl;
+	    }
     
     #ifndef ONLINE_JUDGE
         printf("\n>>Runtime: %.10fs\n", (double)(clock() - start) / CLOCKS_PER_SEC);

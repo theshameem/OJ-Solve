@@ -1,4 +1,4 @@
-//CF 538-B
+// LOJ-1135-> Segment Tree
 #include <bits/stdc++.h>
 using namespace std;
  
@@ -12,7 +12,7 @@ typedef vector<ll>          vll;
 #define ppb                 pop_back
 #define pb                  push_back
 #define MP                  make_pair
-#define MAXN                50005
+#define MAXN                100010
 #define eps                 1e-9
 #define MOD                 1000000007
 #define inf                 0x3f3f3f3f
@@ -39,73 +39,62 @@ typedef vector<ll>          vll;
 #define sllll(a, b, c, d)   scanf("%lld %lld %lld %lld", &a, &b, &c, &d)
 #define vout(v)             for(int i = 0; i < v.size(); i++) {cout << v[i]; if(i < v.size() - 1) cout << ' '; else cout << endl;}
 
-int n, dp[68][10005]; 
-vector<int> v, ans;
-int solve(int pos, int amount){
-	if(pos >= v.size()) return 0;
-	if(dp[pos][amount] != -1) return dp[pos][amount];
-	if(amount == n) return 1;
+int n, q;
+struct mydata{
+	int zero, one, two;
+	int lazy;
+} tree[MAXN * 4];
 
-	int x, y;
-	if(amount + v[pos] <= n){
-		x = 1 + solve(pos + 1, amount + v[pos]);
+void build(int node, int lo, int hi);
+void propagate(int node, int l, int r){
+	if(l != r){
+		tree[node].zero += (lazy[node] * (r - l + 1));
+		tree[node].one += (lazy[node] * (r - l + 1));
+		tree[node].two += (lazy[node] * (r - l + 1));
 	}
-	y = solve(pos + 1, amount);
-	return dp[pos][amount] = min(x, y);
 }
 
 int main(){
     #ifndef ONLINE_JUDGE
         double start = clock(); READ(); WRITE();
     #endif
-        
-
-        // int x = 1;
-        // while(x < 1e6){
-        //     v.push_back(x);
-        //     x *= 10;
-        // }
-        // x = 11;
-        // while(x < 1e6){
-        //     v.push_back(x);
-        //     x *= 10;
-        // }
-        // FOR(i, 0, v.size()){
-        //     if(v[i] % 10 == 0) tmp.push_back(v[i] + 1); 
-        // }
-        // FOR(i, 0, tmp.size()) v.push_back(tmp[i]);
-        // // v.push_back(tmp);
-        // sort(all(v)); unq(v);
-        // vout(v);
-
-        FOR(i, 1, 1000001){
-            int num = i, flg = 1;
-            while(num > 0){
-                if(! (num % 10 == 1 || num % 10 == 0)) flg = 0;
-                num /= 10;
-            }
-            if(flg) v.push_back(i);
+        int t, cs = 0; si(t);
+        while(t--){
+        	sii(n, q);
+        	build(0, 0, n - 1);
+        	while(n--){
+        		int op, a, b; siii(op, a, b);
+        		if(op == 1){
+        			// query();
+        		} else {
+        			// update();
+        		}
+        	}
         }
-        rev(v);
-        // cout << v.size() << endl;
-        // vout(v);
-
-        si(n);
-        FOR(i, 0, v.size()){
-            if(n < v[i]) continue;
-            while(n >= v[i]){
-                ans.push_back(v[i]);
-                n -= v[i];
-            }
-        }
-        // sort(all(ans));
-        MEM(dp, -1);
-        cout << solve(0, 0) << endl;
-        // vout(ans);
 
     #ifndef ONLINE_JUDGE
         printf("\n>>Runtime: %.10fs\n", (double)(clock() - start) / CLOCKS_PER_SEC);
     #endif
 
     return 0;
+}
+
+void build(int node, int lo, int hi){
+	if(lo == hi){
+		tree[node].zero = 1;
+		tree[node].one = 0;
+		tree[node].two = 0;
+		tree[node].lazy = 0;
+		return;
+	}
+
+	int left = (lo + hi) / 2;
+	int right = (lo + hi) / 2 + 1;
+	build(left, lo, left);
+	build(right + 1, left + 1, hi);
+
+	tree[node].zero = tree[left].zero + tree[right].zero;
+	tree[node].one = tree[left].one + tree[right].one;
+	tree[node].two = tree[left].two + tree[right].two;
+	tree[node].lazy = 0;
 }
