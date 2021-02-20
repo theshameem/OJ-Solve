@@ -2,4 +2,4 @@ Case 1: 9
 Case 2: 66
 Case 3: 20
 
->>Runtime: 0.0001070000s
+>>Runtime: 0.0001170000s
