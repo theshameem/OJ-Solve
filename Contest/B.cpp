@@ -4,7 +4,6 @@ using namespace std;
 typedef long long           ll;
 typedef vector<int>         vi;
 typedef vector<ll>          vll;
-
 #define ff                  first
 #define sf                  scanf
 #define pf                  printf
@@ -12,7 +11,8 @@ typedef vector<ll>          vll;
 #define ppb                 pop_back
 #define pb                  push_back
 #define MP                  make_pair
-#define MAXN                100005
+#define MAXN                100010
+#define eps                 1e-9
 #define MOD                 1000000007
 #define inf                 0x3f3f3f3f
 #define PI                  (2.0*acos(0.0))
@@ -23,8 +23,8 @@ typedef vector<ll>          vll;
 #define FOR(i, x, y)        for(int i = x; i < y; i++)
 #define RFOR(i, x, y)       for(int i = x; i >= y; i--)
 #define MEM(arr, val)       memset(arr, val, sizeof(arr));
-#define ubound(v,x)         (upper_bound(all(v), x) - v.begin())
-#define lbound(v,x)         (lower_bound(all(v), x) - v.begin())
+#define ubound(v, x)        (upper_bound(all(v), x) - v.begin())
+#define lbound(v, x)        (lower_bound(all(v), x) - v.begin())
 #define unq(v)              (v).resize(unique(all(v)) - v.begin())
 #define READ()              freopen("input.txt", "r", stdin)
 #define WRITE()             freopen("output.txt", "w", stdout)
@@ -38,41 +38,11 @@ typedef vector<ll>          vll;
 #define sllll(a, b, c, d)   scanf("%lld %lld %lld %lld", &a, &b, &c, &d)
 #define vout(v)             for(int i = 0; i < v.size(); i++) {cout << v[i]; if(i < v.size() - 1) cout << ' '; else cout << endl;}
 
-int arr[MAXN], n, q;
-
-struct node {
-	int prop, sum;
-} tree[MAXN * 4];
-
-void build(int now, int l, int r){
-	if(l == r){
-		tree[l].sum = arr[l];
-		tree[l].prop = 0;
-	}
-
-	int mid = (l + r) / 2;
-	int left = (now * 2);
-	int right = (now * 2) + 1;
-
-	build(left, l, mid);
-	build(right, mid + 1, r);
-
-	tree[now].sum = tree[left].sum + tree[right].sum;
-}
-
 int main(){
     #ifndef ONLINE_JUDGE
         double start = clock(); READ(); WRITE();
     #endif
-       	int t, cs = 0; si(t);
-       	while(t--){
-       		sii(n, q);
-
-       		build(0, 1, n - 1);
-       		while(q--){
-
-       		}
-       	}
+        
 
     #ifndef ONLINE_JUDGE
         printf("\n>>Runtime: %.10fs\n", (double)(clock() - start) / CLOCKS_PER_SEC);

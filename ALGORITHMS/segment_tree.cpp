@@ -87,3 +87,21 @@ void update(int now, int lo, int hi, int l, int r, int val){
 
     node[now] = node[now*2] + node[(now*2)+1];
 }
+
+int query(int now, int lo, int hi, int l, int r) {
+    propagate(now, lo, hi);
+
+    if(lo == l && hi == r){
+        return node[now];
+    }
+
+    int mid = (lo+hi)/2;
+    
+    if(r <= mid)return query(now*2, lo, mid, l, r);
+    else if(l > mid)return query((now*2)+1, mid+1, hi, l, r);
+    else{ 
+        int x = query(now*2, lo, mid, l, mid);
+        int y = query((now*2)+1, mid+1, hi, mid+1, r);
+        return max(x,y);
+    }
+}
